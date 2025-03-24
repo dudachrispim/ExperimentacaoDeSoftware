@@ -54,3 +54,9 @@ Para validar as hipóteses, foram geradas visualizações de dados, incluindo:
 - Gráficos de evolução temporal para observar padrões de crescimento de popularidade.
 
 - Os insights obtidos indicam que algumas hipóteses são confirmadas, enquanto outras podem requerer uma análise mais aprofundada.
+
+## 5. Conclusão
+
+Este estudo permitiu compreender melhor o ecossistema de repositórios Java no GitHub. Os resultados mostraram que a popularidade de um repositório está fortemente ligada à sua atividade e tamanho. Hipóteses como a relação entre issues abertas e qualidade do repositório ainda necessitam de uma investigação mais detalhada.
+
+Para estudos futuros, recomenda-se aprofundar a análise de qualidade de código usando métricas extraídas pelo CK e avaliar a influência de fatores como linguagem de programação e tipo de projeto.
