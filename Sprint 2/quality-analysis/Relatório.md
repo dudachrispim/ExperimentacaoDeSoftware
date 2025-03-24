@@ -42,3 +42,15 @@ Além disso, um repositório de teste foi clonado para execução do CK, ferrame
 - **H5:** Existe uma correlação entre o número de watchers e forks, indicando o interesse da comunidade.
 
 - **H6:** Repositórios com maior atividade recente tendem a crescer em popularidade mais rapidamente.
+
+## 4. Análise dos Dados
+
+Para validar as hipóteses, foram geradas visualizações de dados, incluindo:
+
+- Histogramas de distribuição de estrelas, forks e watchers.
+
+- Gráficos de dispersão para identificar correlação entre variáveis (exemplo: tamanho x estrelas).
+
+- Gráficos de evolução temporal para observar padrões de crescimento de popularidade.
+
+- Os insights obtidos indicam que algumas hipóteses são confirmadas, enquanto outras podem requerer uma análise mais aprofundada.
