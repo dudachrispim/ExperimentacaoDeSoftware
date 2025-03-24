@@ -11,23 +11,35 @@ Estudo que visa de analisar repositórios relevantes, escritos na linguagem estu
 Para cada questão de pesquisa, será realizada a comparação entre as características do processo de desenvolvimento dos repositórios e os valores obtidos para as métricas definidas nesta seção. 
 
 Para as métricas de processo, tem-se:
+
 • Popularidade: número de estrelas
+
 • Tamanho: linhas de código (LOC) e linhas de comentários
+
 • Atividade: número de releases
+
 • Maturidade: idade (em anos) de cada repositório coletado
 
+
 Por métricas de qualidade, tem-se:
+
 • CBO: Coupling between objects
+
 • DIT: Depth Inheritance Tree
+
 • LCOM: Lack of Cohesion of Methods
+
 
 ## Questões de Pesquisa  
 
 Desta forma, este laboratório tem o objetivo de responder às seguintes questões de pesquisa:
 
 **RQ 01.** Qual a relação entre a popularidade dos repositórios e as suas características de qualidade?
+
 **RQ 02.** Qual a relação entre a maturidade do repositórios e as suas características de qualidade ?
+
 **RQ 03.** Qual a relação entre a atividade dos repositórios e as suas características de qualidade?
+
 **RQ 04.** Qual a relação entre o tamanho dos repositórios e as suas características de qualidade? 
 
 ---
