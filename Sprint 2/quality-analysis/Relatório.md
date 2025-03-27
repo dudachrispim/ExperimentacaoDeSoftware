@@ -49,7 +49,7 @@ Com base nos dados coletados, foram formuladas as seguintes hipóteses:
 - Mediana: 5.21  
 - Desvio padrão: 1.74
 
-![RQ01](graficos/apresentacao_rq01_estrelas_x_cbo.png)
+![rq01_estrelas_x_cbo](https://github.com/user-attachments/assets/79f8fcf3-4476-4fea-a1e6-de3830cf7f83)
 
 A correlação de Pearson foi **-0.10** e a de Spearman **0.01**, indicando que não há uma relação forte entre popularidade e qualidade do código. Ou seja, repositórios populares não necessariamente têm menor acoplamento.
 
@@ -67,7 +67,7 @@ A correlação de Pearson foi **-0.10** e a de Spearman **0.01**, indicando que 
 - Mediana: 1.39  
 - Desvio padrão: 0.36
 
-![RQ02](graficos/apresentacao_rq02_idade_x_dit.png)
+![rq02_idade_x_dit](https://github.com/user-attachments/assets/1d8442a7-45dd-4080-aeed-aedcd78be9d8)
 
 A comparação entre idade (anos) e DIT médio mostrou uma correlação de **0.18 (Pearson)** e **0.27 (Spearman)**. Isso sugere que repositórios mais antigos têm tendência leve a maior profundidade de herança, mas não é uma relação forte.
 
@@ -85,7 +85,7 @@ A comparação entre idade (anos) e DIT médio mostrou uma correlação de **0.1
 - Mediana: 22.96  
 - Desvio padrão: 1858.63
 
-![RQ03](graficos/apresentacao_rq03_commits_x_lcom.png)
+![rq03_commits_x_lcom](https://github.com/user-attachments/assets/fd0b04e7-3dda-4310-9894-03d9c60d0552)
 
 A correlação entre commits e LCOM médio foi **0.01 (Pearson)** e **0.36 (Spearman)**. A correlação moderada com Spearman indica que repositórios mais ativos tendem a ser um pouco mais coesos, mas não é uma relação garantida.
 
@@ -103,7 +103,8 @@ A correlação entre commits e LCOM médio foi **0.01 (Pearson)** e **0.36 (Spea
 - Mediana: 43.5  
 - Desvio padrão: 30.71
 
-![RQ04](graficos/apresentacao_rq04_tamanho_x_loc.png)
+![rq04_tamanho_x_loc](https://github.com/user-attachments/assets/d7f420a2-a994-4e1e-b98f-9c1e4232f22a)
+
 
 A relação entre tamanho (KB) e LOC médio teve correlação de **0.05 (Pearson)** e **0.32 (Spearman)**. Isso indica que repositórios maiores tendem a conter arquivos com mais linhas de código, mas o crescimento do tamanho não está fortemente ligado a mudanças nas outras métricas de qualidade.
 
@@ -112,10 +113,12 @@ A relação entre tamanho (KB) e LOC médio teve correlação de **0.05 (Pearson
 ### Matriz de Correlação
 
 #### Pearson
-![Correlação Pearson](graficos/correlacao_pearson.png)
+![correlacao_pearson](https://github.com/user-attachments/assets/0f0febfd-5c4e-48e4-9a00-96c29a2443b8)
+
 
 #### Spearman
-![Correlação Spearman](graficos/correlacao_spearman.png)
+![correlacao_spearman](https://github.com/user-attachments/assets/62d33c0c-4a42-44a6-ac6b-369436a3afeb)
+
 
 ## 5. Conclusão
 
