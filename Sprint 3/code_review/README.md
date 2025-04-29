@@ -1,97 +1,137 @@
-# DataVader <img src="https://github.com/user-attachments/assets/ec337bc1-f1af-475b-b0d8-de1de35193cd" alt="Darth Vader" width="60">
+# Análise da Atividade de Code Review no GitHub
 
-### Que os dados estejam com você!
+## Introdução
 
-**LABORATÓRIO 01 - Características de repositórios populares**
+Code review é uma etapa essencial no ciclo de desenvolvimento de software, sendo amplamente adotada por equipes ágeis para garantir a qualidade do código antes de sua integração à base principal. No GitHub, esse processo ocorre por meio de *Pull Requests* (PRs), em que contribuições submetidas por desenvolvedores são revisadas por membros da equipe antes de serem aceitas ou rejeitadas.
 
-Estudo das principais características de sistemas populares open-source. Dessa forma, vamos analisar como eles são desenvolvidos, com que frequência recebem contribuição externa, com qual frequência lançam releases, entre outras características. Para tanto, iremos coletar os dados para os 1.000 repositórios com maior número de estrelas no GitHub e discutir os valores obtidos. 
+Este trabalho tem como objetivo caracterizar a atividade de code review em repositórios populares do GitHub, analisando variáveis que possam influenciar tanto o resultado final de um PR (merge ou rejeição), quanto o número de revisões realizadas.
 
+## Metodologia
 
-## 🔍 Questões de Pesquisa  
+### Coleta de Dados
 
-✅ **RQ 01** - Sistemas populares são maduros/antigos?  
-🔹 **Métrica:** Idade do repositório (calculado a partir da data de sua criação).  
+- Foram selecionados os **200 repositórios mais populares** do GitHub com base no número de estrelas.
+- Foram coletados PRs com status `merged` ou `closed`.
+- Consideramos apenas PRs que:
+  - Têm **tempo de análise superior a 1 hora** (para evitar automações).
+  - São de repositórios com **mais de 100 PRs válidos**.
+  - São **amostras reais com revisão humana**.
 
-✅ **RQ 02** - Sistemas populares recebem muita contribuição externa?  
-🔹 **Métrica:** Total de Pull Requests aceitas.  
+A coleta foi feita com a API do GitHub e armazenada em um CSV com os campos principais, como número de arquivos modificados, linhas adicionadas/removidas, tempo de análise, tamanho da descrição e comentários.
 
-✅ **RQ 03** - Sistemas populares lançam releases com frequência?  
-🔹 **Métrica:** Total de releases.  
+### Métricas
 
-✅ **RQ 04** - Sistemas populares são atualizados com frequência?  
-🔹 **Métrica:** Tempo até a última atualização (calculado a partir da data de última atualização).  
+- **Tamanho do PR**: `arquivos_alterados`, `linhas_adicionadas`, `linhas_removidas`
+- **Tempo de Análise**: `tempo_analise_horas`
+- **Descrição**: `tamanho_descricao`
+- **Interações**: `comentarios`, `comentarios_review` (estimado via dataset complementar)
 
-✅ **RQ 05** - Sistemas populares são escritos nas linguagens mais populares?  
-🔹 **Métrica:** Linguagem primária de cada um desses repositórios.  
-
-✅ **RQ 06** - Sistemas populares possuem um alto percentual de issues fechadas?  
-🔹 **Métrica:** Razão entre número de issues fechadas pelo total de issues.  
-
----
-
-## 📦 Dependências  
-
-Para que o projeto funcione corretamente, você precisa instalar as seguintes bibliotecas:  
-
-- `requests` - Para fazer requisições HTTP para a API do GitHub.  
-- `gql` - Para interagir com a API GraphQL do GitHub.  
-  
+A análise foi feita com base em valores **medianos** e utilizamos a correlação de **Spearman**, por se tratar de uma técnica robusta para variáveis com comportamento monotônico, sem necessidade de normalidade nos dados.
 
 ---
 
-## ⚙️ Como configurar o ambiente  
+## Resultados e Discussão
 
-É recomendável usar um ambiente virtual para gerenciar as dependências do projeto.  
-Siga os passos abaixo para configurar corretamente o ambiente:
+### A. Feedback Final das Revisões (Status do PR)
 
-### **1️⃣ Criando um ambiente virtual**  
-Abra o terminal e execute o seguinte comando:
+#### RQ01. Qual a relação entre o tamanho dos PRs e o feedback final das revisões?
 
-```bash
-python -m venv .venv
-```
-### **2️⃣ Ativando o ambiente virtual**
+**Hipótese**: PRs maiores são mais difíceis de revisar e têm maior chance de serem rejeitados.
 
-### ✅ No macOS e Linux:
+- Correlação (arquivos_alterados x status): **ρ = -0.41**
+- Correlação (linhas_adicionadas x status): **ρ = -0.43**
+- Correlação (linhas_removidas x status): **ρ = -0.39**
 
-```bash
-source .venv/bin/activate
-```
+**Discussão**: Confirma-se a hipótese de que PRs maiores tendem a ter menor taxa de aceitação. Isso pode ser explicado pela dificuldade de revisão e maior propensão a conflitos ou falhas.
 
-### ✅ No Windows:
-```powershell
-.venv\Scripts\Activate
-```
-### **3️⃣ Instalando as Dependências**  
-Após ativar o ambiente virtual, instale as bibliotecas necessárias executando o comando abaixo:
+---
 
-```bash
-pip install requests
-```
-Isso garantirá que todas as dependências estejam configuradas corretamente.
+#### RQ02. Qual a relação entre o tempo de análise dos PRs e o feedback final das revisões?
 
-### **4️⃣ Configuração do Token**
+**Hipótese**: PRs que demoram mais a ser analisados têm maior chance de rejeição.
 
-Para acessar a API do GitHub, você precisa de um token de autenticação.
+- Correlação (tempo_analise_horas x status): **ρ = -0.44**
 
-- Crie um token do GitHub:
+**Discussão**: PRs que ficam mais tempo abertos têm menor chance de serem aceitos, talvez por perda de contexto, relevância ou engajamento dos revisores.
 
-1. Acesse GitHub Developer Settings.
-2. Clique em Generate new token.
-3. Selecione a permissão repo.
-4. Clique em Generate token e copie o token gerado.
-5. Adicione o token no código:
+---
 
-Substitua o valor de TOKEN pela string do token gerado:
+#### RQ03. Qual a relação entre a descrição dos PRs e o feedback final das revisões?
 
-```bash
-TOKEN = “token_token_token”
-```
+**Hipótese**: PRs com descrições mais completas tendem a ser aceitos com mais frequência.
 
-### **5️⃣ Executando o Script**  
-Após configurar o ambiente, instalar as dependências e configurar o token, execute o script principal do projeto com o seguinte comando:
+- Correlação (tamanho_descricao x status): **ρ = +0.36**
 
-```bash
-python github_query.py
-```
-Isso fará com que o script colete os dados dos 100 repositórios mais populares no GitHub e exiba as informações no terminal.
+**Discussão**: Confirma-se a importância de uma boa descrição para contextualizar o PR, reduzir dúvidas e facilitar o trabalho dos revisores.
+
+---
+
+#### RQ04. Qual a relação entre as interações nos PRs e o feedback final das revisões?
+
+**Hipótese**: Mais interações sugerem maior chance de aceitação (colaboração), mas também podem indicar problemas.
+
+- Correlação (comentarios_review x status): **ρ = -0.31**  
+- Correlação (participantes x status): **ρ = +0.25**  
+*Fonte: dataset complementar das colegas.*
+
+**Discussão**: Comentários em excesso podem refletir problemas ou necessidade de muitas correções. Já a diversidade de participantes colabora com maior aceitação.
+
+---
+
+### B. Número de Revisões
+
+#### RQ05. Qual a relação entre o tamanho dos PRs e o número de revisões realizadas?
+
+**Hipótese**: PRs maiores exigem mais revisões.
+
+- Correlação (arquivos_alterados x comentarios): **ρ = +0.48**
+- Correlação (linhas_adicionadas x comentarios): **ρ = +0.51**
+
+**Discussão**: Confirma-se que PRs maiores tendem a gerar mais discussões, exigindo mais ciclos de revisão.
+
+---
+
+#### RQ06. Qual a relação entre o tempo de análise dos PRs e o número de revisões realizadas?
+
+**Hipótese**: PRs com mais tempo em aberto acumulam mais comentários e revisões.
+
+- Correlação (tempo_analise_horas x comentarios): **ρ = +0.46**
+
+**Discussão**: Quanto maior o tempo, mais interações e iterações ocorrem, indicando refino contínuo da proposta.
+
+---
+
+#### RQ07. Qual a relação entre a descrição dos PRs e o número de revisões realizadas?
+
+**Hipótese**: PRs bem descritos necessitam de menos revisões.
+
+- Correlação (tamanho_descricao x comentarios): **ρ = -0.32**
+
+**Discussão**: Descrições completas evitam mal-entendidos e reduzem revisões desnecessárias.
+
+---
+
+#### RQ08. Qual a relação entre as interações nos PRs e o número de revisões realizadas?
+
+**Hipótese**: PRs com mais interações são mais iterativos.
+
+- Correlação (comentarios_review x comentarios): **ρ = +0.45**  
+- Correlação (participantes x comentarios): **ρ = +0.41**  
+*Fonte: dataset complementar das colegas.*
+
+**Discussão**: Interações humanas estão diretamente relacionadas ao número de revisões, demonstrando engajamento no processo de code review.
+
+---
+
+## Conclusão
+
+Este trabalho analisou mais de **90 mil PRs** válidos de **200 repositórios populares**, utilizando apenas revisões humanas com mais de uma hora de duração.
+
+As análises confirmaram as hipóteses iniciais de que:
+
+- PRs **maiores e demorados** têm menor taxa de aceitação.
+- PRs com **descrições completas** são melhor recebidos.
+- **Interações moderadas** e envolvimento colaborativo aumentam a qualidade do processo de revisão.
+
+A correlação de Spearman foi eficaz para captar relações monotônicas entre variáveis técnicas e sociais no processo de revisão de código no GitHub.
+
