@@ -12,10 +12,7 @@ Este trabalho tem como objetivo caracterizar a atividade de code review em repos
 
 - Foram selecionados os **200 repositórios mais populares** do GitHub com base no número de estrelas.
 - Foram coletados PRs com status `merged` ou `closed`.
-- Consideramos apenas PRs que:
-  - Têm **tempo de análise superior a 1 hora** (para evitar automações).
-  - São de repositórios com **mais de 100 PRs válidos**.
-  - São **amostras reais com revisão humana**.
+- Consideramos apenas repositórios com **mais de 100 PRs válidos**.
 
 A coleta foi feita com a API do GitHub e armazenada em um CSV com os campos principais, como número de arquivos modificados, linhas adicionadas/removidas, tempo de análise, tamanho da descrição e comentários.
 
