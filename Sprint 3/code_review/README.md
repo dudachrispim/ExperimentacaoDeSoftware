@@ -43,6 +43,7 @@ A análise foi feita com base em valores **medianos** e utilizamos a correlaçã
 - Correlação (linhas_removidas x status): **ρ = -0.39**
 
 **Discussão**: Confirma-se a hipótese de que PRs maiores tendem a ter menor taxa de aceitação. Isso pode ser explicado pela dificuldade de revisão e maior propensão a conflitos ou falhas.
+![output](https://github.com/user-attachments/assets/8789778c-97cf-49a0-8e69-9d98d2f3ca0b)
 
 ---
 
@@ -53,6 +54,7 @@ A análise foi feita com base em valores **medianos** e utilizamos a correlaçã
 - Correlação (tempo_analise_horas x status): **ρ = -0.44**
 
 **Discussão**: PRs que ficam mais tempo abertos têm menor chance de serem aceitos, talvez por perda de contexto, relevância ou engajamento dos revisores.
+![output (1)](https://github.com/user-attachments/assets/2d431af7-90fe-465e-990e-36700ab20bed)
 
 ---
 
@@ -63,6 +65,7 @@ A análise foi feita com base em valores **medianos** e utilizamos a correlaçã
 - Correlação (tamanho_descricao x status): **ρ = +0.36**
 
 **Discussão**: Confirma-se a importância de uma boa descrição para contextualizar o PR, reduzir dúvidas e facilitar o trabalho dos revisores.
+![output (2)](https://github.com/user-attachments/assets/390cd102-d8dd-4bb9-a494-9df8b32da19e)
 
 ---
 
@@ -75,6 +78,7 @@ A análise foi feita com base em valores **medianos** e utilizamos a correlaçã
 *Fonte: dataset complementar das colegas.*
 
 **Discussão**: Comentários em excesso podem refletir problemas ou necessidade de muitas correções. Já a diversidade de participantes colabora com maior aceitação.
+![output (3)](https://github.com/user-attachments/assets/28fc7102-0b11-4a48-9801-4249c9c1c2d0)
 
 ---
 
@@ -88,6 +92,7 @@ A análise foi feita com base em valores **medianos** e utilizamos a correlaçã
 - Correlação (linhas_adicionadas x comentarios): **ρ = +0.51**
 
 **Discussão**: Confirma-se que PRs maiores tendem a gerar mais discussões, exigindo mais ciclos de revisão.
+![output (4)](https://github.com/user-attachments/assets/0665cf9a-f121-48fd-91ca-f830546db29e)
 
 ---
 
@@ -98,6 +103,7 @@ A análise foi feita com base em valores **medianos** e utilizamos a correlaçã
 - Correlação (tempo_analise_horas x comentarios): **ρ = +0.46**
 
 **Discussão**: Quanto maior o tempo, mais interações e iterações ocorrem, indicando refino contínuo da proposta.
+![output (5)](https://github.com/user-attachments/assets/c6f6e9e6-aeea-47c7-9207-17b1f1c30a8d)
 
 ---
 
@@ -108,6 +114,7 @@ A análise foi feita com base em valores **medianos** e utilizamos a correlaçã
 - Correlação (tamanho_descricao x comentarios): **ρ = -0.32**
 
 **Discussão**: Descrições completas evitam mal-entendidos e reduzem revisões desnecessárias.
+![output (6)](https://github.com/user-attachments/assets/aa1945e0-5a6d-4548-b061-88f33351a2c8)
 
 ---
 
@@ -120,6 +127,7 @@ A análise foi feita com base em valores **medianos** e utilizamos a correlaçã
 *Fonte: dataset complementar das colegas.*
 
 **Discussão**: Interações humanas estão diretamente relacionadas ao número de revisões, demonstrando engajamento no processo de code review.
+![output (7)](https://github.com/user-attachments/assets/b753944d-d00e-4709-a4f1-7e3847c29814)
 
 ---
 
