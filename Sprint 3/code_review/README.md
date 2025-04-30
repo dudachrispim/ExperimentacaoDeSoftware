@@ -133,8 +133,6 @@ A análise foi feita com base em valores **medianos** e utilizamos a correlaçã
 
 ## Conclusão
 
-Este trabalho analisou mais de **90 mil PRs** válidos de **200 repositórios populares**, utilizando apenas revisões humanas com mais de uma hora de duração.
-
 As análises confirmaram as hipóteses iniciais de que:
 
 - PRs **maiores e demorados** têm menor taxa de aceitação.
