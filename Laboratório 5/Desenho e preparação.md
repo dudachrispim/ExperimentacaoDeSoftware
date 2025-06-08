@@ -91,13 +91,14 @@ Um script foi desenvolvido para realizar chamadas REST e GraphQL, medir o tempo 
     rating
   }
 }
-
+```
 Exemplo de trecho do código:
 
-start = time.time()
+```start = time.time()
 response = requests.post(GRAPHQL_URL, json=GRAPHQL_QUERY)
 end = time.time()
 tempo_resposta = (end - start) * 1000
+```
 
 O script completo está disponível no arquivo experimento_tempo_resposta.py.
 
