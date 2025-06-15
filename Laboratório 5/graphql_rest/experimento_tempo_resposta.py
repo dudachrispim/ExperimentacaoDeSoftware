@@ -3,22 +3,21 @@ import time
 import pandas as pd
 
 REST_URL = 'http://localhost:3000/books/1'
-GRAPHQL_URL = 'http://localhost:3000/graphql'
+GRAPHQL_URL = 'http://localhost:4000/graphql'
 GRAPHQL_QUERY = {
     "query": """
     {
       book(id: 1) {
+        id
         title
-        author {
-          name
-        }
+        author
         rating
       }
     }
     """
 }
 
-# REST
+# Testar REST
 def test_rest():
     durations = []
     sizes = []
@@ -30,7 +29,7 @@ def test_rest():
         sizes.append(len(r.content))
     return durations, sizes
 
-# GraphQL
+# Testar GraphQL
 def test_graphql():
     durations = []
     sizes = []
