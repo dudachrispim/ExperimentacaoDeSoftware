@@ -84,8 +84,12 @@ Os dados foram revisados para identificar outliers ou medições incorretas. Nen
 - **Tempo de Resposta (RQ1):**  
  O REST apresentou um tempo médio ligeiramente menor que o GraphQL, indicando que, neste cenário simples, REST teve melhor desempenho em tempo de resposta.
 
+![Tempo de resposta](https://github.com/user-attachments/assets/dad88f09-0f5f-4e4c-8623-0c2ecd8092d3)
+
 - **Tamanho da Resposta (RQ2):**  
  As respostas do REST foram menores, pois retornam diretamente os dados do recurso `/books/1` de forma simples, sem a sobrecarga estrutural que o GraphQL possui (como os blocos `data`, `book` e outros metadados na resposta).
+
+![Tamanho da resposta](https://github.com/user-attachments/assets/fe0fe6aa-2eef-4db0-a5b5-5a4557ae3b41)
 
 Os resultados, de certa forma, contrariam a expectativa comum de que o GraphQL sempre terá respostas menores, evidenciando que em cenários muito simples e com dados pouco aninhados, o REST pode ser mais eficiente tanto em tempo quanto em tamanho de resposta.
 
