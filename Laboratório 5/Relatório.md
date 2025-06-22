@@ -103,22 +103,6 @@ Isso demonstra que a escolha entre REST e GraphQL deve considerar o contexto, a 
 
 ---
 
-## Ambiente de Execução
-
-- Host: Localhost
-- Máquina: Intel i5, 16GB RAM, SSD (substituir pela sua configuração)
-- APIs implementadas utilizando:  
-  - REST: JSON Server  
-  - GraphQL: GraphQL Server (Ex.: Apollo Server, GraphQL Yoga ou equivalente)  
-- Sistema Operacional: Windows 10 (ou o que você utilizou)
-- Linguagem para o script de teste: Python 3.x
-- Bibliotecas Python utilizadas:  
-  - `requests`  
-  - `time`  
-  - `pandas`
-
----
-
 ## Arquivos Gerados
 
 - `resultados_experimento.csv` — Resultados das medições (tempo e tamanho das respostas).
